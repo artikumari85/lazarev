@@ -1061,13 +1061,18 @@ summary::marker {
 #page5-content details:not([open]) .accordion-toggle .ri-arrow-down-s-line { display: block; }
 
 #page7 {
-    height: 100vh;
-    min-height: 0;
-    padding: 0;
+    min-height: 100vh;
+    height: auto;
+    padding: 10vh 10.5vw 3vh;
     background-color: #111;
 }
 
 @media (max-width: 900px) {
+    #page7 {
+        min-height: auto;
+        padding: 10vw 7vw 3vw;
+    }
+
     #page5-content summary { padding-right: 75px; }
     #page5-content .accordion-toggle {
         top: 0;
