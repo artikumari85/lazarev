@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: lazarev-agency-artikumari85
+    runtime: static
+    buildCommand: echo "Static site - no build required"
+    staticPublishPath: .
+    autoDeployTrigger: commit
