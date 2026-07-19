@@ -9,6 +9,11 @@ html,body{
     height: 100%;
     width: 100%;
     color: #fff;
+    background-color: #111;
+}
+
+#main {
+    background-color: #111;
 }
 
 nav{
