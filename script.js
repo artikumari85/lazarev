@@ -132,21 +132,28 @@ video.addEventListener("click",function(){
 }
 page3VideoAnimation()
 
-// function VideoAnimation(){
-// let sections = document.querySelectorAll(".sec-right")
-// sections.forEach(function(elem){
-//   elem.addEventListener("mouseenter",function(){
-//     elem.childNodes[3].style.opacity = 1
-//     elem.childNodes[3].play()
-//   })
-//   elem.addEventListener("mouseleave",function(){
-//     elem.childNodes[3].style.opacity = 0
-//     elem.childNodes[3].load()
-  
-// })
-// })
-// }
-// VideoAnimation()
+function videoAnimation(){
+  let sections = document.querySelectorAll(".sec-right")
+
+  sections.forEach(function(elem){
+    let video = elem.querySelector("video")
+
+    elem.addEventListener("mouseenter",function(){
+      video.play().then(function(){
+        video.style.opacity = 1
+      }).catch(function(){
+        video.style.opacity = 0
+      })
+    })
+
+    elem.addEventListener("mouseleave",function(){
+      video.pause()
+      video.currentTime = 0
+      video.style.opacity = 0
+    })
+  })
+}
+videoAnimation()
 
 
 function page6Animations(){
