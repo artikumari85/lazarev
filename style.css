@@ -1022,3 +1022,33 @@ summary::marker {
     .footer-brand { grid-column: 1 / -1; }
     .footer-bottom { gap: 10px; flex-direction: column; }
 }
+
+/* Original project layout restored */
+#page5-content h1 {
+    font-size: 3vw;
+    font-weight: 500;
+    letter-spacing: normal;
+}
+
+#page5-content #flex {
+    display: flex;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+#page5-content summary {
+    padding-right: 0;
+}
+
+#page5-content .accordion-toggle,
+#page5-content summary::after,
+#page5-content summary::before {
+    display: none;
+}
+
+#page7 {
+    height: 100vh;
+    min-height: 0;
+    padding: 0;
+    background-color: #111;
+}

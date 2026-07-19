@@ -38,12 +38,9 @@ ScrollTrigger.refresh();
 locomotiveAnimation()
 
 function navAnimation() {
-  // The desktop hover dropdown should not run on touch / mobile layouts.
-  if (window.matchMedia("(max-width: 900px)").matches) return;
+  var nav = document.querySelector("nav");
 
-  var navMenu = document.querySelector(".nav-part2");
-
-  navMenu.addEventListener("mouseenter", function () {
+  nav.addEventListener("mouseenter", function () {
     let tl = gsap.timeline();
     tl.to("#nav-bottom", {
       height: "21vh",
@@ -60,7 +57,7 @@ function navAnimation() {
     });
   });
 
-  navMenu.addEventListener("mouseleave", function () {
+  nav.addEventListener("mouseleave", function () {
     let tl = gsap.timeline();
     tl.to(".nav-part2 h5 span", {
       y: 25,
@@ -81,24 +78,6 @@ function navAnimation() {
 }
 
 navAnimation()
-
-function mobileMenu() {
-  const menuButton = document.querySelector(".mobile-menu");
-  const navLinks = document.querySelector(".nav-part2");
-
-  function toggleMenu(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const isOpen = navLinks.classList.toggle("mobile-open");
-    menuButton.classList.toggle("is-open", isOpen);
-    menuButton.setAttribute("aria-expanded", isOpen);
-    menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-  }
-
-  menuButton.addEventListener("click", toggleMenu);
-}
-
-mobileMenu()
 
 function page2Animation(){
   let rightElems = document.querySelectorAll(".right-elem")
@@ -153,46 +132,22 @@ video.addEventListener("click",function(){
 }
 page3VideoAnimation()
 
-function videoAnimation(){
-  let sections = document.querySelectorAll(".sec-right")
+// function VideoAnimation(){
+// let sections = document.querySelectorAll(".sec-right")
+// sections.forEach(function(elem){
+//   elem.addEventListener("mouseenter",function(){
+//     elem.childNodes[3].style.opacity = 1
+//     elem.childNodes[3].play()
+//   })
+//   elem.addEventListener("mouseleave",function(){
+//     elem.childNodes[3].style.opacity = 0
+//     elem.childNodes[3].load()
+  
+// })
+// })
+// }
+// VideoAnimation()
 
-  sections.forEach(function(elem){
-    let video = elem.querySelector("video")
-
-    elem.addEventListener("mouseenter",function(){
-      video.muted = true
-      video.play().then(function(){
-        video.style.opacity = 1
-      }).catch(function(){
-        video.style.opacity = 0
-      })
-    })
-
-    elem.addEventListener("mouseleave",function(){
-      video.pause()
-      video.currentTime = 0
-      video.muted = true
-      video.controls = false
-      video.style.opacity = 0
-    })
-
-    function enableSound(){
-      video.muted = false
-      video.defaultMuted = false
-      video.volume = 1
-      video.controls = true
-      video.play()
-      video.style.opacity = 1
-    }
-
-    elem.addEventListener("click", enableSound)
-    video.addEventListener("click", function(event){
-      event.stopPropagation()
-      enableSound()
-    })
-  })
-}
-videoAnimation()
 
 function page6Animations(){
   gsap.from("#btm6-part2 h4",{
